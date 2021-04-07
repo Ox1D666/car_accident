@@ -20,9 +20,9 @@
 </head>
 <body>
 <div class="container">
-    <c:forEach items="${users}" var="user">
+    <c:forEach items="${accidents}" var="accident">
         <div class="row">
-            <c:out value="${user}"/>
+            <c:out value="${accident}"/>
         </div>
     </c:forEach>
 </div>
