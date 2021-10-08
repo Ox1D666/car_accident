@@ -25,6 +25,7 @@
             <c:out value="${accident}"/>
         </div>
     </c:forEach>
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
 </div>
 </body>
 </html>
