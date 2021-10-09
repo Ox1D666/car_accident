@@ -20,9 +20,20 @@ public class AccidentControl {
         return "accident/create";
     }
 
+    @GetMapping("/edit")
+    public String edit() {
+        return "accident/edit";
+    }
+
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident) {
         accidents.create(accident);
+        return "redirect:/";
+    }
+
+    @PostMapping("/update")
+    public String save(int key, @ModelAttribute Accident accident) {
+        accidents.update(key, accident);
         return "redirect:/";
     }
 }

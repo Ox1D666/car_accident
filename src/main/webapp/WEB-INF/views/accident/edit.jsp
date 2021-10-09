@@ -16,17 +16,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
             crossorigin="anonymous"></script>
-    <title>Accident</title>
+    <title>Edit</title>
 </head>
 <body>
-<div class="container">
-    <c:forEach items="${accidents}" var="accident">
-        <div class="row">
-            <c:out value="${accident}"/>
-        </div>
-    </c:forEach>
-    <a href="<c:url value='/create'/>">Добавить инцидент</a><br/>
-    <a href="<c:url value='/edit'/>">Редактировать инцидент</a>
-</div>
+<form action="<c:url value='/update'/>" method='POST'>
+    <table>
+        <tr>
+            <td>ID инцидента:</td>
+            <td><input type='number' name='key'></td>
+        </tr>
+        <tr>
+            <td>Название:</td>
+            <td><input type='text' name='name'></td>
+        </tr>
+        <tr>
+            <td colspan='2'><input name="submit" type="submit" value="Сохранить" /></td>
+        </tr>
+    </table>
+</form>
+
 </body>
 </html>

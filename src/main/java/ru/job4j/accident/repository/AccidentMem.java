@@ -7,17 +7,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
+    private AtomicInteger count = new AtomicInteger();
 
     public AccidentMem() {
-        accidents.put(1, new Accident("speed limit", "over speed", "Moscow, Lenina 1"));
-        accidents.put(2, new Accident("road accident", "collision of 2 cars", "Moscow, Pobedy 3"));
     }
 
     public List<Accident> getAccidents() {
         return new ArrayList<>(accidents.values());
+    }
+
+    public Accident getAccident(int key) {
+        return accidents.get(key);
+    }
+
+    public void create(Accident accident) {
+        accident.setId(count.get());
+        accidents.put(count.get(), accident);
+        count.getAndIncrement();
+    }
+
+    public void update(int key, Accident accident) {
+        accidents.remove(key);
+        accidents.put(key, accident);
     }
 }
