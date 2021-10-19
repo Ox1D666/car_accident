@@ -21,12 +21,16 @@
 <body>
 <div class="container">
     <c:forEach items="${accidents}" var="accident">
-        <div class="row">
-            <c:out value="${accident}"/>
+        <div>
+            <span>
+                <c:out value="${accident.name}"/>
+            </span>
+            <span>
+                <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
+            </span>
         </div>
     </c:forEach>
-    <a href="<c:url value='/create'/>">Добавить инцидент</a><br/>
-    <a href="<c:url value='/edit'/>">Редактировать инцидент</a>
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
 </div>
 </body>
 </html>

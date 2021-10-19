@@ -19,21 +19,17 @@
     <title>Edit</title>
 </head>
 <body>
-<form action="<c:url value='/update'/>" method='POST'>
+<form action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
     <table>
         <tr>
-            <td>ID инцидента:</td>
-            <td><input type='number' name='key'></td>
+            <td>Название:</td>
+            <td><input type='text' name='name' value="${accident.name}"></td>
         </tr>
         <tr>
-            <td>Название:</td>
-            <td><input type='text' name='name'></td>
-        </tr>
         <tr>
             <td colspan='2'><input name="submit" type="submit" value="Сохранить" /></td>
         </tr>
     </table>
 </form>
-
 </body>
 </html>
