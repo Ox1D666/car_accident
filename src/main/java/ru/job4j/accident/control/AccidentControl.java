@@ -25,12 +25,18 @@ public class AccidentControl {
     @GetMapping("/update")
     public String update(@RequestParam("id") int id, Model model) {
         model.addAttribute("accident", accidents.getAccident(id));
+        accidents.update(id, accidents.getAccident(id));
         return "accident/update";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident) {
         accidents.create(accident);
+        return "redirect:/";
+    }
+    @PostMapping("/updateInstance")
+    public String updateInstance(@ModelAttribute Accident accident) {
+        accidents.update(accident.getId(), accident);
         return "redirect:/";
     }
 }
