@@ -25,14 +25,14 @@ public class AccidentMem {
         return accidents.get(key);
     }
 
-    public void create(Accident accident) {
-        accident.setId(count.get());
-        accidents.put(count.get(), accident);
-        count.getAndIncrement();
-    }
-
     public void update(int key, Accident accident) {
-        accidents.remove(key);
-        accidents.put(key, accident);
+        if (accident.getId() > -1) {
+            accidents.remove(accident.getId());
+            accidents.put(accident.getId(), accident);
+        } else {
+            accident.setId(count.get());
+            accidents.put(count.get(), accident);
+            count.getAndIncrement();
+        }
     }
 }

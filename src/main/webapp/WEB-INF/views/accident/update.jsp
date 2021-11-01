@@ -19,7 +19,7 @@
     <title>Edit</title>
 </head>
 <body>
-<form action="<c:url value='/updateInstance?id=${accident.id}'/>" method='POST'>
+<form action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
     <table>
         <tr>
             <td>Название:</td>

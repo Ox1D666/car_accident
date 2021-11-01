@@ -19,7 +19,7 @@
     <title>Create</title>
 </head>
 <body>
-<form  action="<c:url value='/save'/>" method='POST'>
+<form  action="<c:url value='/save?id=-1'/>" method='POST'>
     <table>
         <tr>
             <td>Название:</td>
