@@ -26,13 +26,17 @@ public class AccidentMem {
     }
 
     public void update(int key, Accident accident) {
-        if (accident.getId() > -1) {
-            accidents.remove(accident.getId());
+        if (accident.getId() == 0) {
             accidents.put(accident.getId(), accident);
         } else {
             accident.setId(count.get());
             accidents.put(count.get(), accident);
             count.getAndIncrement();
         }
+    }
+
+    public static void main(String[] args) {
+        double num = 11.0 % 2.0;
+        System.out.println(num);
     }
 }
